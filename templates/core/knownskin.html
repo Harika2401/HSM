@@ -1,0 +1,33 @@
+{% extends 'partials/base.html'%}
+{% load static %}
+{% block content %}
+<section id="skinproblems" class="section-p1">
+    <h1 style="text-align: center;padding-top: 100px;">What is Botherings you?</h1>
+    <div class="prob-container">
+        
+       
+        <div class="prob">
+            <img src="{% static 'C:\Users\harik\OneDrive\Desktop\my_project\static\image\tan.jpg'%}">
+            <div class="title">
+                <h1> TAN</h1>
+            </div>
+            <div class="des">
+                <p>Want a tan free face?</p>
+                <button><a style="color: white;" href="{% url 'store3' %}">View products</a></button>
+            </div>
+                
+        </div>
+        <div class="prob">
+            <img src="{% static 'C:\Users\harik\OneDrive\Desktop\my_project\static\image\aging.jpg'%}">
+            <div class="title">
+                <h1> AGING</h1>
+            </div>
+            <div class="des">
+                <p>Want to look young?</p>
+                <button><a style="color: white;" href="{% url 'store4' %}">View products</a></button>
+            </div>
+                
+        </div>
+    </div>
+</section>
+{% endblock content%}

@@ -1,0 +1,13 @@
+{% extends 'partials/base.html'%}
+{% load static %}
+{% block content %}
+
+<div class="bg-img" style="padding-top: 20%;background-color: beige;">
+  <div style="margin-bottom: 0%;text-align: center; margin-top: 2%;">
+    <h1 style="color: rgb(1, 1, 1);">Fed up with all the questions about your skin type?</h1>
+    <p style="color: rgb(4, 3, 3);font-size: 30px;margin-top: 3%;">You are on the right platform.</p>
+    <button class="button1" onclick="window.location.href='{% url 'skintype' %}'" style="font-size: 20px;">Click Here To Know More</button>
+  </div>
+  
+</div>
+{% endblock content%}

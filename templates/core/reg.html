@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background:  linear-gradient(to right, #030304, #734810);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      
+    }
+    .containerreg {
+      background-color: transparent;
+      padding: 20px;
+      border-radius: 5px solid white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+    .containerreg h2 {
+      margin-bottom: 20px;
+      color: #f9f4f4;
+    }
+    .containerreg label {
+      margin: 10px 0 5px;
+      display: block;
+      color: #fffdfd;
+    }
+    .containerreg input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .containerreg button {
+      width: 100%;
+      padding: 10px;
+      background-color: transparent;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .containerreg button:hover {
+      background-color: #050605;
+    }
+    .containerreg .error {
+      color: red;
+      margin-bottom: 10px;
+    }
+    .containerreg .success {
+      color: rgb(239, 245, 239);
+      margin-bottom: 10px;
+    }
+    .containerreg .link {
+      margin-top: 10px;
+      text-align: center;
+    }
+    .containerreg .link a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .containerreg .link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="containerreg">
+    <h2>Register</h2>
+    {% if success_message %}
+    <div class="success">{{ success_message }}</div>
+    {% endif %}
+    <form method="post" novalidate>
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Register</button>
+    </form>
+    {% if form.errors %}
+    <div class="error">
+      <ul>
+        {% for field, errors in form.errors.items %}
+        {% for error in errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    <div class="link">
+      <a href="{% url 'userlog' %}">Already have an account? Sign in</a>
+    </div>
+  </div>
+</body>
+</html>

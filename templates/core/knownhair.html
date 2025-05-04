@@ -1,0 +1,43 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block content %}
+<section id="skinproblems" class="section-p1">
+    <h1 style="text-align: center;padding-top: 100px;">What is Botherings you?</h1>
+    <div class="prob-container">
+        <div class="prob">
+            <img src="{% static 'C:\Users\harik\OneDrive\Desktop\my_project\static\image\aging.JPG' %}">
+            <div class="title">
+                <h1>WHITE HAIR</h1>
+            </div>
+            <div class="des">
+                <p>Suffering from Hair Whitening?</p>
+                <button><a style="color: white;" href="{% url 'store5' %}">View products</a></button>
+            </div>
+                
+        </div>
+        <div class="prob">
+            <img src="{% static 'C:\Users\harik\OneDrive\Desktop\my_project\static\image\dandruff.JPG' %}">
+            <div class="title">
+                <h1> DANDRUFF</h1>
+            </div>
+            <div class="des">
+                <p>Want to get rid of Dandruff?</p>
+                <button><a style="color: white;" href="{% url 'store6' %}">View products</a></button>
+            </div>
+                
+        </div>
+        <div class="prob">
+            <img src="{% static 'C:\Users\harik\OneDrive\Desktop\my_project\static\image\frizzy.JPG' %}">
+            <div class="title">
+                <h1>FRIZZY</h1>
+            </div>
+            <div class="des">
+                <p>Want a frizzy less hair?</p>
+                <button><a style="color: white;" href="{% url 'store7' %}">View products</a></button>
+            </div>
+                
+        </div>
+        
+    </div>
+</section>
+{% endblock content %}

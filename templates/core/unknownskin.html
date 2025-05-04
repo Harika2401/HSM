@@ -1,0 +1,74 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="quiz">
+    <div class="container2">
+        <h1>STEP 1</h1>
+        <div class="question">
+            <h2>Question 1: Wash your face with a gentle cleanser and wait 15 - 30 minutes. Click the icon that matches what you see.</h2>
+            <div class="options">
+                <input type="radio" name="q1" value="red" id="q1_red"> <label for="q1_red">Feels tight & dehydrated. Some flaky areas.</label><br>
+                <input type="radio" name="q1" value="blue" id="q1_blue"> <label for="q1_blue">Looks shiny & feels slick to the touch</label><br>
+                <input type="radio" name="q1" value="green" id="q1_green"> <label for="q1_green">Looks dry in some areas, but shiny in others. Particularly the T-zone (forehead, nose, & chin)</label><br>
+                <input type="radio" name="q1" value="yellow" id="q1_yellow"> <label for="q1_yellow">Feels smooth, balanced & healthy.</label><br>
+            </div>
+        </div>
+    
+       
+        <button id="nextBtn" onclick="nextStep()">NEXT</button><br>
+      
+        <div id="result" class="result" style="font-size: 20px;"></div>
+        
+        <button id="viewProductsBtn" class="view-products-btn" style="display: none;" onclick="viewProducts()">Click here to view products</button><br>
+      
+    </div>
+    
+
+<script>
+    // script.js
+function nextStep() {
+    // Get user selections
+    const q1 = document.querySelector('input[name="q1"]:checked');
+    // Check if user has made a selection
+    if (q1) {
+        // Perform result calculation based on selections
+        let result = '';
+        if (q1.value === 'red') {
+            result = 'Your skin is Dry';
+        } else if (q1.value === 'blue') {
+            result = 'Your skin is oily';
+        } else if (q1.value === 'green') {
+            result = 'Your skin is both dry and oily';
+        } else {
+            result = 'Your skin is Normal';
+        }
+        // Display result
+        document.getElementById('result').innerHTML = result;
+        // Show "Click here to view products" button
+        document.getElementById('viewProductsBtn').style.display = 'block';
+    } else {
+        alert('Please select an option!');
+    }
+}
+
+function viewProducts() {
+    const q1 = document.querySelector('input[name="q1"]:checked');
+    if (q1) {
+        // Redirect based on the selected option
+        if (q1.value === 'red') {
+            window.location.href = '{% url 'knownskin' %}'; // Redirect to appropriate page
+        } else if (q1.value === 'blue') {
+            window.location.href = '{% url 'knownskin' %}';// Add redirection for other options if needed
+        } else if (q1.value === 'green') {
+            window.location.href = '{% url 'knownskin' %}';// Add redirection for other options if needed
+        } else {
+            window.location.href = '{% url 'knownskin' %}';// Add redirection for other options if needed
+        }
+    } else {
+        alert('Please complete step 1!');
+    }
+}
+</script>
+</div>
+{% endblock content %}

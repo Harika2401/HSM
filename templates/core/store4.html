@@ -1,0 +1,25 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block content %}
+<h1></h1>
+<div style="padding-top: 10%;background-color: beige;">
+    <h1 style="font-size: 50px;">AGING</h1>
+    <div class="row">
+       
+        {% for productsage in productsage %}
+        <div class="col-lg-4">
+            
+                
+                    <img class="prob-container" style="cursor: pointer;width: 100%;" src="{{ productsage.image.url }}" alt="Product Image">
+               
+            
+            <div class="box-element product">
+                <h2>{{ productsage.name }}</h1>
+                <hr>
+                
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
